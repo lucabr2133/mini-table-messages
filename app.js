@@ -1,4 +1,9 @@
 import express from 'express'
+
+
+const port = process.env.PORT || 3000;
+
+
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import { routerIndex } from './routes/index.js';
@@ -16,7 +21,7 @@ app.set("view engine", "ejs");
 app.use(express.static(join(__dirname, 'public')));
 app.use('/',routerIndex)
 app.use('/new',routerForm)
-app.listen(2000,()=>{
-    console.log('app listening in port 2000');
+app.listen(port,()=>{
+    console.log('app listening in port '+port);
     
 })
